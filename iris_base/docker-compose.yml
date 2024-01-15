@@ -1,0 +1,53 @@
+version: '3.6'
+services:
+  iris:
+    hostname: irisData
+    #build:
+      #context: .
+      #dockerfile: Dockerfile
+    image: irisdata 
+    restart: always
+    ports:
+      - 2000:1972
+    command: --key /iris-shared/license/iris.key
+    volumes:
+      - type: bind
+        source: iris
+        target: /iris-shared
+      - type: bind
+        source: iris/serviceaccount
+        target: /var/run/secrets/kubernetes.io/serviceaccount/
+    networks:
+      - llm-layer
+
+  webgateway:
+    image: containers.intersystems.com/intersystems/webgateway:2023.3
+    init: true
+    container_name: webgateway
+    hostname: webgateway
+    environment:
+      - ISC_CSP_INI_FILE=/webgateway-shared/CSP.ini
+      - ISC_CSP_CONF_FILE=/webgateway-shared/CSP.conf
+    volumes:
+    - type: bind
+      source: ./webgateway
+      target: /webgateway-shared
+    ports:
+    - 42773:80
+    networks:
+      - llm-layer
+
+  DBChain:
+    image: dbchain_test
+    hostname: dbchain
+    ports:
+      - "12344:12344"
+    networks:
+      - llm-layer
+
+networks:
+  llm-layer:
+    driver: bridge
+
+  
+

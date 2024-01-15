@@ -1,0 +1,37 @@
+
+#import iris
+import jaydebeapi
+"""
+connection_string = "localhost:2000/SDS"
+username = "SuperUser"
+password = "test"
+connection = iris.connect(connection_string, username, password)
+print(connection)
+connection.close()
+"""
+
+"""
+url = "jdbc:IRIS://localhost:2000/SDS"
+driver = 'com.intersystems.jdbc.IRISDriver'
+user = "SuperUser"
+password = "test"
+jarfile = "/app/intersystems-jdbc-3.3.1.jar"
+#jarfile = "C:\\Users\\jgupta\\Downloads\\isc-python-data-busybox-sample-master\\isc-python-data-busybox-sample-master\\python-project\\intersystems-jdbc-3.3.1.jar"
+table = "SDS_DataModel.Person"
+
+conn = jaydebeapi.connect(driver, url, [user, password], jarfile)
+curs = conn.cursor()
+dataTable = "SDS_DataModel.Person"
+curs.execute("select TOP 20 * from %s" % dataTable)
+result = curs.fetchall()
+
+agent_executor = create_sql_agent(
+    llm=OpenAI(temperature=0, model="gpt-3.5-turbo-instruct", verbose=True),
+    toolkit=SQLDatabaseToolkit(db=result, llm=OpenAI(temperature=0)),
+    verbose=True,
+    agent_type=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
+)
+
+agent_executor.run("Describe the table")
+
+"""

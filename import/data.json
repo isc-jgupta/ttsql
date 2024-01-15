@@ -1,0 +1,50 @@
+[
+    {
+        "FirstName":"Jeff",
+        "LastName": "Winger",
+        "Email": "Jeff.Winger@greendale.com",
+        "NetWorth": 50000
+    },
+    {
+        "FirstName":"Britta",
+        "LastName": "Perry",
+        "Email": "Britta.Perry@greendale.com",
+        "NetWorth": 5000
+    },
+    {
+        "FirstName":"Abed",
+        "LastName": "Nadir",
+        "Email": "Abed.Nadir@greendale.com",
+        "NetWorth": 6000
+    },
+    {
+        "FirstName":"Annie",
+        "LastName": "Edison",
+        "Email": "Annie.Edison@greendale.com",
+        "NetWorth": 7000
+    },
+    {
+        "FirstName":"Troy",
+        "LastName": "Barnes",
+        "Email": "Troy.Barnes@greendale.com",
+        "NetWorth": 1000
+    },
+    {
+        "FirstName":"Pierce",
+        "LastName": "Hawthorne",
+        "Email": "Pierce.Hawthorne@greendale.com",
+        "NetWorth": 5000000
+    },
+    {
+        "FirstName":"Shirley",
+        "LastName": "Bennett",
+        "Email": "Shirley.Bennett@greendale.com",
+        "NetWorth": 20000
+    },
+    {
+        "FirstName":"Craig",
+        "LastName": "Pelton",
+        "Email": "Craig.Pelton@greendale.com",
+        "NetWorth": 40000
+    }
+]

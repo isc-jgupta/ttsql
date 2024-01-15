@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="7" time="69.094" timestamp="2024-01-15T04:07:07.782538" hostname="12780ad79f46"><testcase classname="test2" name="test_calculate_difference[Number of people in SDS_DataModel.Person?-expected_output0]" time="9.304" /><testcase classname="test2" name="test_calculate_difference[List all emails from SDS_DataModel.Person-expected_output1]" time="9.100" /><testcase classname="test2" name="test_calculate_difference[List the FirstName with the largest NetWorth SDS_DataModel.Person-expected_output2]" time="10.533"><failure message="AssertionError: assert [['Bennett'],...Winger'], ...] == [['Hawthorne'...'Perry'], ...]&#10;  At index 0 diff: ['Bennett'] != ['Hawthorne']&#10;  Use -v to get more diff">first_value = 'List the FirstName with the largest NetWorth SDS_DataModel.Person'
+expected_output = [['Hawthorne'], ['Barnes'], ['Winger'], ['Pelton'], ['Bennett'], ['Perry'], ...]
+
+    @pytest.mark.parametrize(
+        "first_value, expected_output",
+        [
+            ("Number of people in SDS_DataModel.Person?", [[8]]),
+            ("List all emails from SDS_DataModel.Person", [['Jeff'],['Britta'],['Abed'],['Annie'],['Troy'],['Pierce'],['Shirley'],['Craig']]),
+            ("List the FirstName with the largest NetWorth SDS_DataModel.Person", [['Hawthorne'],['Barnes'],['Winger'],['Pelton'],['Bennett'],['Perry'],['Edison'],['Nadir']]),
+            ("Is there someone with the FirstName Jack in SDS_DataModel.Person", [[0]]),
+            ("How many tables contain a column with NetWorth", [[0]]),
+            ("How many people have a OnCampusJob as a Trainer in SDS_DataModel.Campus", [[1]]),
+            ("How many GreendaleID are 'True' in SDS_DataModel.Campus", [[2]]),
+        ]
+    
+    )
+    
+    def test_calculate_difference(first_value, expected_output):
+        joke_chain = RemoteRunnable("http://dbchain:12344/simple/")
+        calculation, query= joke_chain.invoke(first_value)
+&gt;       assert calculation == expected_output
+E       AssertionError: assert [['Bennett'],...Winger'], ...] == [['Hawthorne'...'Perry'], ...]
+E         At index 0 diff: ['Bennett'] != ['Hawthorne']
+E         Use -v to get more diff
+
+test2.py:22: AssertionError</failure></testcase><testcase classname="test2" name="test_calculate_difference[Is there someone with the FirstName Jack in SDS_DataModel.Person-expected_output3]" time="9.648" /><testcase classname="test2" name="test_calculate_difference[How many tables contain a column with NetWorth-expected_output4]" time="10.032" /><testcase classname="test2" name="test_calculate_difference[How many people have a OnCampusJob as a Trainer in SDS_DataModel.Campus-expected_output5]" time="9.422" /><testcase classname="test2" name="test_calculate_difference[How many GreendaleID are 'True' in SDS_DataModel.Campus-expected_output6]" time="9.211" /></testsuite></testsuites>
